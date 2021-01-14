@@ -1,0 +1,39 @@
+---
+title: "Skylar Wyant - Week 2 Lab"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+use_python("c:\\programdata\\anaconda3", required = TRUE)
+py_run_string("import os as os")
+py_run_string("os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/programdata/Anaconda3/Library/plugins/platforms'")
+```
+
+```{r}
+library(nycflights13)
+data(flights)
+```
+
+```{python}
+import pandas
+print(type(r.flights))
+print(r.flights)
+```
+
+```{r}
+data(mtcars)
+```
+
+```{python}
+print(r.mtcars.head())
+```
+
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+g = sns.FacetGrid(r.mtcars, col="cyl")
+g.map(sns.scatterplot,"wt","mpg");
+plt.show()
+```
